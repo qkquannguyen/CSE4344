@@ -1,7 +1,10 @@
 # ----------------------------------- Import Needed Libraries ----------------------------------- #
+import logging
 import sys
 
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
+
+logging.getLogger().setLevel(logging.INFO)
 
 # ------------------------------------ Initialize Flask App. ------------------------------------ #
 app = Flask(__name__)
@@ -15,6 +18,15 @@ Purpose     : Homepage of GoodCode
 def homepage():
     return render_template('goodcode_homepage.html')
 
+'''
+Endpoint    : localhost:PORT/json
+Purpose     : Test the browser with multiple connections concurrently
+'''
+@app.route('/json')
+def test_json():
+    return jsonify(success=True)
+
+
 # ------------------------------------ Start Web Server App. ------------------------------------ #
 if __name__ == '__main__':
     
@@ -24,8 +36,8 @@ if __name__ == '__main__':
     try:
         inputPort = sys.argv[1]
     except:
-        print("No port specified. Defaulting to Port 80.")
-        inputPort = 80
+        logging.info("No port specified. Defaulting to Port 8080.")
+        inputPort = 8080
 
     # ----------------- Run the Web Server Application ----------------- #
-    app.run(port=inputPort)
+    app.run(threaded=True, port=inputPort)
