@@ -4,6 +4,7 @@ import sys
 
 from flask import Flask, render_template, jsonify
 
+# ----------------------------------- Set Debug Logging Level ----------------------------------- #
 logging.getLogger().setLevel(logging.INFO)
 
 # ------------------------------------ Initialize Flask App. ------------------------------------ #
@@ -39,5 +40,4 @@ if __name__ == '__main__':
         logging.info("No port specified. Defaulting to Port 8080.")
         inputPort = 8080
 
-    # ----------------- Run the Web Server Application ----------------- #
     app.run(threaded=True, port=inputPort)
