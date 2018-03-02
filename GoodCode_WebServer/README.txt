@@ -17,24 +17,35 @@ web application. Along with Flask, Visual Studio Code was used to write this pro
 # -------------------------------- Dependencies / Libraries Used -------------------------------- #
 Dependencies that were utilized in this project were:
     -   Flask
+    -   Flask-API
+    -   Python 3.6 Libraries
 
 # ---------------------------------- Steps to Run the Web App. ---------------------------------- #
 Assuming Python is installed on the system, simply run the following commands to use this web
-application.
+application. Be sure that Python 3.6 is installed on your system. Go to your terminal window and
+use the following commands:
 
-    -   pip install -r requirements.txt
-    -   python goodcode_app.py 
+    -   pip3 install -r requirements.txt
+    -   python3 goodcode_server.py <Insert Port #>
 
-# --------------------------------------- Expected Output --------------------------------------- #
+    +   The server should be running now on the port you specified on localhost. Simply connect to it
+        on the web browser by going to:
+            -   localhost:<Port>
+            -   0.0.0.0:<Port>
+
+    -   Run the web client on another terminal window with the commands below:
+            - python3 goodcode_webclient.py <Hostname> <Port #> <HTML File>
 
 # ------------------------------------- Directory Structure ------------------------------------- #
 
     ----- GoodCode_WebServer
             |
-             ----- goodcode_template
+             ----- templates
                      |
-                      ----- goodcode_homepahe.html
+                      ----- goodcode_homepage.html
+                     |
+                      ----- index.html
              ----- README.txt
-             ----- goodcode_app.py
+             ----- goodcode_server.py
+             ----- goodcode_webclient.py
              ----- requirements.txt
-             
